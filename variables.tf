@@ -56,11 +56,40 @@ variable "sg_egress_1" {
   }))
 }
 
+variable "security_group_name_ssm_1" {
+  description = "The name of the SSM security group for the first VPC."
+  type        = string
+}
+
+variable "security_group_description_ssm_1" {
+  description = "The description of the SSM security group for the first VPC."
+  type        = string
+}
+
+variable "sg_ingress_ssm_1" {
+  description = "A list of ingress rules for the SSM security group in the first VPC."
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+}
+
+variable "sg_egress_ssm_1" {
+  description = "A list of egress rules for the SSM security group in the first VPC."
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+}
+
 variable "route_table_name_1" {
   description = "The name of the route table for the first VPC."
   type        = string
 }
-
 
 variable "nacl_name_1" {
   description = "The name of the network ACL for the first VPC."
@@ -78,6 +107,7 @@ variable "nacl_ingress_1" {
     rule_no    = number
   }))
 }
+
 variable "nacl_egress_1" {
   description = "A list of egress rules for the network ACL in the first VPC."
   type = list(object({
@@ -190,6 +220,36 @@ variable "nacl_egress_2" {
 variable "ec2_name_2" {
   description = "The name of the EC2 instance in the second VPC."
   type        = string
+}
+
+variable "security_group_name_ssm_2" {
+  description = "The name of the SSM security group for the second VPC."
+  type        = string
+}
+
+variable "security_group_description_ssm_2" {
+  description = "The description of the SSM security group for the second VPC."
+  type        = string
+}
+
+variable "sg_ingress_ssm_2" {
+  description = "A list of ingress rules for the SSM security group in the second VPC."
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+}
+
+variable "sg_egress_ssm_2" {
+  description = "A list of egress rules for the SSM security group in the second VPC."
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
 }
 
 variable "tags_2" {
